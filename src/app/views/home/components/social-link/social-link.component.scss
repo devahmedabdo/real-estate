@@ -1,0 +1,22 @@
+a {
+  &::after,
+  &::before {
+    @apply text-sm absolute left-1/2 -translate-x-1/2 top-0 opacity-0 duration-300 bg-cyan-400 rounded-full -z-50;
+  }
+  &::after {
+    @apply w-3 h-3 -translate-y-8;
+    content: "";
+  }
+  &::before {
+    @apply w-fit px-3 py-1 text-white;
+    content: attr(title);
+  }
+  &:hover {
+    &::before {
+      @apply opacity-100 -translate-y-12;
+    }
+    &::after {
+      @apply -translate-y-4 opacity-100;
+    }
+  }
+}

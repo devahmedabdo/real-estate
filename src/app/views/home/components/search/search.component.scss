@@ -1,0 +1,92 @@
+form {
+  > div {
+    > div {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+}
+.result {
+  > div {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    @apply grid flex-wrap justify-center px-5 py-3 bg-zinc-50 gap-2 rounded-lg;
+    > span {
+      grid-column: 1 / -1;
+      @media (min-width: 600px) {
+        @apply hidden;
+      }
+    }
+    > div {
+      @apply mt-3 rounded-lg text-zinc-800 bg-zinc-100 text-center px-3 py-2  flex items-start flex-col  gap-2;
+      &:first-of-type {
+        @apply rounded-r-lg;
+      }
+      &:last-of-type {
+        @apply rounded-l-lg;
+      }
+      span {
+        @apply font-bold text-zinc-600;
+      }
+    }
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(6, minmax(90px, 1fr));
+      @apply flex-nowrap justify-center bg-transparent gap-0 py-0;
+
+      > div {
+        @apply flex-row items-center justify-center  mt-0 bg-zinc-100 border-zinc-300 rounded-none;
+
+        span {
+          @apply hidden;
+        }
+        &:not(:last-child) {
+          @apply border-l;
+        }
+      }
+    }
+    &:first-child {
+      > div {
+        @apply bg-zinc-800 text-zinc-50;
+      }
+      @media (max-width: 600px) {
+        @apply hidden;
+      }
+    }
+  }
+}
+// .result {
+//   > div {
+//     @apply flex flex-wrap justify-center px-5 py-3 bg-zinc-50 gap-2 rounded-lg;
+//     grid-template-columns: repeat(6, minmax(100px, 1fr));
+//     > span {
+//       @media (min-width: 600px) {
+//         @apply hidden;
+//       }
+//     }
+//     > div {
+//       @apply mt-3 rounded-lg text-zinc-800 bg-zinc-100 min-w-[115px]  text-center px-3 py-2  flex items-start flex-col  gap-2;
+//       span {
+//         @apply font-bold text-zinc-600;
+//       }
+//     }
+//     @media (min-width: 600px) {
+//       @apply flex-nowrap justify-center bg-transparent gap-0 py-0;
+//       > div {
+//         @apply flex-row items-center justify-center w-24 bg-zinc-100 border-zinc-500 rounded-none;
+//         span {
+//           @apply hidden;
+//         }
+//         &:not(:last-child) {
+//           @apply border-l;
+//         }
+//       }
+//     }
+//     &:first-child {
+//       > div {
+//         @apply bg-zinc-800 text-zinc-50;
+//       }
+//       @media (max-width: 600px) {
+//         @apply hidden;
+//       }
+//     }
+//   }
+// }

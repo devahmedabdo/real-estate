@@ -1,0 +1,27 @@
+.add {
+  @apply relative w-72;
+
+  > div {
+    @apply absolute w-full h-full duration-200 ease-in bg-zinc-50 p-3 rounded-3xl;
+    backface-visibility: hidden;
+    &.back {
+      transform: rotateY(180deg);
+      .services {
+        ul {
+          display: -webkit-box;
+          -webkit-line-clamp: 14;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  &.show-back {
+    .front {
+      transform: rotateY(180deg);
+    }
+    .back {
+      transform: rotateY(0deg);
+    }
+  }
+}

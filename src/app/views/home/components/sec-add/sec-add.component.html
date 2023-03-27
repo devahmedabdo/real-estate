@@ -1,0 +1,32 @@
+<div class="add relative w-72 h-[30rem] mx-auto" [ngClass]="{'show-back':showBack}">
+  <div class="front  z-30">
+    <div>
+      <img class="w-full aspect-square object-cover rounded-3xl shadow-md" [src]="'assets/'+miniAdd.logo" alt="">
+    </div>
+    <div class="pt-5 flex items-center flex-col gap-3">
+      <h3 class="font-bold">{{miniAdd.name}}</h3>
+      <h4>{{miniAdd.loaction}}</h4>
+      <button class="btn" (click)="showBack=!showBack">تعرف على خدماتنا</button>
+      <div class=" flex justify-evenly gap-3 mt-3">
+        <a class="socialBtn" [href]="miniAdd.facebook"><fa-icon [icon]="facebook"></fa-icon></a>
+        <a class="socialBtn" [href]="miniAdd.instagram"><fa-icon [icon]="instagram"></fa-icon></a>
+        <a class="socialBtn" [href]="miniAdd.phone"><fa-icon [icon]="phone"></fa-icon></a>
+      </div>
+    </div>
+  </div>
+  <div class="back bg-red-600">
+    <button (click)="showBack=!showBack" class="absolute top-5 right-5"><img class="w-5" src="assets/close.svg"
+        alt=""></button>
+    <img class="w-1/2 rounded-full mx-auto shadow-md aspect-square" [src]="'assets/'+miniAdd.logo" alt="">
+    <div class="text-zinc-700 flex gap-2 text-xl font-bold pt-5">
+      <fa-icon [icon]="building"></fa-icon>
+      <span>خدماتنا</span>
+    </div>
+    <div class="services">
+      <ul class=" text-xs px-5 list-disc">
+        <li class="py-1" *ngFor="let service of miniAdd.services">{{service}}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

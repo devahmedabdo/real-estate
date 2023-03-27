@@ -1,0 +1,119 @@
+<div class="relative -top-20 mb-20">
+  <form class="bg-white rounded-[20px] rounded-b-md max-w-5xl mx-auto p-5 shadow-lg" action="">
+    <h2 class="text-2xl text-center text-zinc-700 font-medium">ابحث عن المخطط وسعره </h2>
+    <div class="flex justify-center gap-3 flex-wrap py-10">
+      <div class="form-select">
+        <div (click)="city=!city">
+          <fa-icon [icon]="location"></fa-icon>
+          <input readonly type="text" value="" placeholder="المدينة">
+          <img src="../../../../../assets/real-estate-deals-button.svg" alt="real-estate-deals-button">
+        </div>
+        <div [ngClass]="{active:city}" (click)="city=false">
+          <div>الصفقات</div>
+          <div>الشارقه</div>
+          <div>جده</div>
+          <div>الرياض</div>
+          <div>العقارية</div>
+        </div>
+      </div>
+      <div class="form-select">
+        <div (click)="chart=!chart">
+          <fa-icon [icon]="chartIcon"></fa-icon>
+          <input readonly type="text" value="" placeholder="المخطط">
+          <img src="../../../../../assets/real-estate-deals-button.svg" alt="real-estate-deals-button">
+        </div>
+        <div [ngClass]="{active:chart}" (click)="chart=false">
+          <div>الصفقات</div>
+          <div>الشارقه</div>
+          <div>جده</div>
+          <div>الرياض</div>
+          <div>العقارية</div>
+        </div>
+      </div>
+      <div class="form-select">
+        <div (click)="piece=!piece">
+          <fa-icon [icon]="pieceIcon"></fa-icon>
+          <input readonly type="text" value="" placeholder="القطعة">
+          <img src="../../../../../assets/real-estate-deals-button.svg" alt="real-estate-deals-button">
+        </div>
+        <div [ngClass]="{active:piece}" (click)="piece=false">
+          <div>الصفقات</div>
+          <div>الشارقه</div>
+          <div>جده</div>
+          <div>الرياض</div>
+          <div>العقارية</div>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button class="" type="submit">
+          <div *ngIf="startSearch" class="loading">
+            <span></span>
+          </div>
+          <fa-icon [icon]="search"></fa-icon>
+          <span>ابحث الان</span>
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class=" mt-10 flex flex-col gap-1 result container">
+    <div>
+      <div>
+        القطعة
+      </div>
+      <div>
+        التاريخ
+      </div>
+      <div>
+        السعر
+      </div>
+      <div>
+        النوع
+      </div>
+      <div>
+        المساحة
+      </div>
+      <div>
+        سعر المتر
+      </div>
+    </div>
+    <div *ngFor="let result of searchResult">
+      <span class="w-full font-bold text-xl">{{result.piece}}</span>
+      <div>
+        <span>القطعة</span>
+        <div>
+          {{result.piece}}
+        </div>
+      </div>
+      <div>
+        <span>التاريخ</span>
+        <div>
+          {{result.date}}
+        </div>
+      </div>
+      <div>
+        <span>السعر</span>
+        <div>
+          {{result.price}}
+        </div>
+      </div>
+      <div>
+        <span>النوع</span>
+        <div>
+          {{result.type}}
+        </div>
+      </div>
+      <div>
+        <span>المساحة</span>
+        <div>
+          {{result.space}}
+        </div>
+      </div>
+      <div>
+        <span>سعر المتر</span>
+        <div>
+          {{result.mPrice}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

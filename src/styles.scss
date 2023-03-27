@@ -1,1 +1,253 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./animation.scss" as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    body {
+      @apply bg-white bg-opacity-40 text-zinc-800;
+      font-family: "Almarai", sans-serif;
+      input {
+        @apply bg-transparent;
+        &:focus {
+          @apply outline-none;
+        }
+      }
+    }
+    ::selection {
+      @apply bg-cyan-500 text-white;
+    }
+  }
+}
+@layer utilities {
+  .container {
+    @apply mx-auto px-2;
+    @media (min-width: 768px) {
+      max-width: 1200px;
+    }
+  }
+}
+@layer components {
+  .socialBtn {
+    @apply w-10 h-10 flex justify-center items-center relative duration-300 bg-zinc-700 rounded-full text-zinc-50 text-xl;
+    &::after {
+      @apply rounded-full shadow-md w-full h-full absolute  origin-top bg-zinc-900 opacity-0 blur-[10px] duration-300;
+      content: "";
+      top: calc(100% + 10px);
+      transform: scaleY(0.1);
+    }
+    &:hover {
+      @apply bg-cyan-500 -translate-y-2;
+      &::after {
+        @apply opacity-20;
+      }
+    }
+  }
+  .form-select {
+    @apply relative;
+    > div {
+      &:first-child {
+        @apply relative flex bg-zinc-100 rounded-lg items-center px-5 py-2 font-medium cursor-pointer;
+        input {
+          @apply px-3 py-1 w-full cursor-pointer;
+        }
+        fa-icon {
+          @apply text-zinc-600;
+        }
+      }
+      &:nth-child(2) {
+        @apply rounded-md items-stretch flex flex-col overflow-hidden absolute w-full left-0 scale-y-0 origin-top duration-100 h-auto;
+        top: calc(100% + 10px);
+        &.active {
+          @apply scale-y-100 shadow-xl z-50;
+        }
+        > div {
+          @apply px-8 py-2 bg-zinc-100 hover:bg-zinc-200  cursor-pointer;
+        }
+      }
+    }
+    // > div {
+    // }
+    // img{
+
+    // }
+    // fa-icon{
+    //   @apply absolute le
+    // }
+  }
+  .form-submit {
+    > button {
+      @apply relative  flex gap-3 items-center px-5 bg-cyan-500 text-white py-2 rounded-lg w-full overflow-hidden;
+      .loading {
+        @apply absolute w-full top-0 left-0 h-full flex justify-center items-center z-10 bg-cyan-500;
+        > span {
+          @apply border border-white border-t-0 animate-spin  w-5 h-5 rounded-full;
+        }
+      }
+      > span {
+        @apply py-1;
+      }
+    }
+  }
+  .btn {
+    @apply bg-zinc-800 text-white duration-300 hover:bg-cyan-500 hover:shadow-md px-5 py-1 rounded-full;
+  }
+  // .title {
+  //   @apply pt-24 text-center capitalize;
+  //   > h2 {
+  //     @apply relative text-3xl font-bold px-5 w-fit  mx-auto duration-300 cursor-pointer;
+  //     // &::after,
+  //     // &::before {
+  //     //   content: "";
+  //     //   background: url(assets/titleImg2.png) center center no-repeat;
+  //     //   filter: saturate(0.5);
+  //     //   @apply w-12 h-12 absolute top-1/2 -translate-y-1/2 bg-cover duration-300;
+  //     //   @media (max-width: 430px) {
+  //     //     @apply hidden;
+  //     //   }
+  //     // }
+  //     // &::after {
+  //     //   @apply left-full;
+  //     //   --tw-scale-x: -1;
+  //     // }
+  //     // &::before {
+  //     //   @apply right-full;
+  //     // }
+  //   }
+  //   p {
+  //     @apply py-2 text-zinc-400;
+  //   }
+  //   &:hover {
+  //     h2 {
+  //       @apply text-orange-500;
+  //       &::after,
+  //       &::before {
+  //         filter: saturate(1);
+  //       }
+  //     }
+  //   }
+  // }
+  // .shop-btn {
+  //   @apply py-2 px-5 bg-cyan-900 hover:bg-orange-400 text-white duration-300 uppercase;
+  // }
+  // .checkBoxLable {
+  //   @apply flex gap-2 items-center cursor-pointer select-none;
+  //   > div {
+  //     @apply w-4 border h-4 rounded-sm;
+  //     > div {
+  //       @apply h-full w-full scale-0 duration-150 rounded-sm bg-orange-500;
+  //     }
+  //   }
+  //   &.active {
+  //     > div {
+  //       > div {
+  //         --tw-scale-x: 0.8;
+  //         --tw-scale-y: 0.8;
+  //       }
+  //     }
+  //   }
+  // }
+  // .side-title {
+  //   @apply font-bold text-lg pb-5 capitalize;
+  // }
+  // .formInput {
+  //   > div {
+  //     @apply flex items-center  relative;
+  //     input {
+  //       outline: none !important;
+  //       @apply accent-orange-400 w-full border border-transparent font-bold bg-zinc-50 px-5 py-4 pt-6 rounded-2xl duration-300;
+  //       &:focus {
+  //         @apply bg-transparent border-orange-400;
+  //         & + label {
+  //           @apply text-xs top-2;
+  //         }
+  //       }
+  //     }
+  //     label {
+  //       @apply absolute left-5 top-6 duration-300 capitalize;
+  //       &.active {
+  //         @apply top-2 text-xs;
+  //       }
+  //     }
+  //     fa-icon {
+  //       @apply text-zinc-500 duration-300 text-sm cursor-pointer absolute right-2;
+  //       @media (min-width: 400px) {
+  //         @apply right-4;
+  //       }
+  //       @media (min-width: 500px) {
+  //         @apply right-5  text-xl;
+  //       }
+  //     }
+  //   }
+  //   p {
+  //     @apply px-4 py-1 text-xs text-red-500 h-6 overflow-hidden;
+  //     span {
+  //       @apply translate-y-6 opacity-0 duration-300 capitalize block;
+  //     }
+  //   }
+  //   &.active {
+  //     label {
+  //       @apply text-orange-400;
+  //     }
+  //     fa-icon {
+  //       @apply text-orange-400;
+  //     }
+  //   }
+  //   &.error {
+  //     > div {
+  //       label {
+  //         @apply text-red-500;
+  //       }
+  //       fa-icon {
+  //         @apply text-red-500;
+  //       }
+  //     }
+  //     p {
+  //       span {
+  //         @apply translate-y-0 opacity-100;
+  //       }
+  //     }
+  //   }
+  // }
+  // .formRadio {
+  //   label {
+  //     @apply capitalize duration-300 rounded-2xl flex justify-center items-center w-fit w-24 md:w-28 py-4 bg-zinc-50 flex-col gap-3 border border-transparent;
+  //     fa-icon {
+  //       @apply duration-300 text-4xl text-zinc-600;
+  //     }
+  //   }
+  //   p {
+  //     @apply px-4 py-1 text-xs text-red-500 h-6 overflow-hidden;
+  //     span {
+  //       @apply translate-y-6 opacity-0 duration-300 capitalize block;
+  //     }
+  //   }
+  //   &.active {
+  //     label {
+  //       @apply shadow-lg border-orange-400 bg-transparent;
+  //       fa-icon {
+  //         @apply text-orange-400;
+  //       }
+  //     }
+  //   }
+  //   &.error {
+  //     label {
+  //       @apply border-red-400;
+  //       fa-icon {
+  //         @apply text-red-400;
+  //       }
+  //     }
+  //     p {
+  //       span {
+  //         @apply translate-y-0 opacity-100;
+  //       }
+  //     }
+  //   }
+  // }
+  // .formNumber {
+  //   appearance: unset;
+  //   @extend .formInput;
+  // }
+}
