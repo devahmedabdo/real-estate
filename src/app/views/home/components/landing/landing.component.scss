@@ -3,3 +3,11 @@
   background-size: cover;
   background-position: right;
 }
+form {
+  > div {
+    > div {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+}

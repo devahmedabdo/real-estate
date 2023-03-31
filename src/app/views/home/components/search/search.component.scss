@@ -12,6 +12,7 @@ form {
     @apply grid flex-wrap justify-center px-5 py-3 bg-zinc-50 gap-2 rounded-lg;
     > span {
       grid-column: 1 / -1;
+      @apply bg-zinc-800 text-white p-2 rounded-md;
       @media (min-width: 600px) {
         @apply hidden;
       }
@@ -20,6 +21,9 @@ form {
       @apply mt-3 rounded-lg text-zinc-800 bg-zinc-100 text-center px-3 py-2  flex items-start flex-col  gap-2;
       &:first-of-type {
         @apply rounded-r-lg;
+        @media (max-width: 600px) {
+          @apply hidden;
+        }
       }
       &:last-of-type {
         @apply rounded-l-lg;
